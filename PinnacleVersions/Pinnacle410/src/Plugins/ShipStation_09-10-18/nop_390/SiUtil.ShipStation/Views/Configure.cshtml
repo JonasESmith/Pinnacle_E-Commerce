@@ -1,0 +1,240 @@
+﻿@{
+    Layout = "";
+}
+@model Nop.Plugin.SiUtil.ShipStation.Models.ConfigurationModel
+@using Nop.Web.Framework;
+@using Nop.Plugin.SiUtil.ShipStation;
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="panel-group">
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <div class="form-group">
+                    <div class="col-md-3">
+                        Plugin Version Number
+                    </div>
+                    <div class="col-md-9">
+                        @SiUtilShipStationPlugInVersion.CurrentVersion
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-3">
+                        @Html.NopLabelFor(model => model.LicenseKey)
+                    </div>
+                    <div class="col-md-9">
+                        @Html.EditorFor(model => model.LicenseKey)
+                        @Html.ValidationMessageFor(model => model.LicenseKey)
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-3">
+                        @Html.NopLabelFor(model => model.ShipStationURL)
+                    </div>
+                    <div class="col-md-9">
+                        @(Model.ShipStationURL)
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-3">
+                        @Html.NopLabelFor(model => model.PageSize)
+                    </div>
+                    <div class="col-md-9">
+                        @Html.EditorFor(model => model.PageSize)
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-3">
+                        @Html.NopLabelFor(model => model.OrderStatusToCompleteWhenShipped)
+                    </div>
+                    <div class="col-md-9">
+                        @Html.EditorFor(model => model.OrderStatusToCompleteWhenShipped)
+                        @Html.ValidationMessageFor(model => model.OrderStatusToCompleteWhenShipped)
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-3">
+                        @Html.NopLabelFor(model => model.IncludeCustomerOrderNotes)
+                    </div>
+                    <div class="col-md-9">
+                        @Html.EditorFor(model => model.IncludeCustomerOrderNotes)
+                        @Html.ValidationMessageFor(model => model.IncludeCustomerOrderNotes)
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-3">
+                        @Html.NopLabelFor(model => model.IncludeNopOrderNotes)
+                    </div>
+                    <div class="col-md-9">
+                        @Html.EditorFor(model => model.IncludeNopOrderNotes)
+                        @Html.ValidationMessageFor(model => model.IncludeNopOrderNotes)
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-3">
+                        @Html.NopLabelFor(model => model.SendShippingEmails)
+                    </div>
+                    <div class="col-md-9">
+                        @Html.EditorFor(model => model.SendShippingEmails)
+                        @Html.ValidationMessageFor(model => model.SendShippingEmails)
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-3">
+                        @Html.NopLabelFor(model => model.AddRequestsToNopLog)
+                    </div>
+                    <div class="col-md-9">
+                        @Html.EditorFor(model => model.AddRequestsToNopLog)
+                        @Html.ValidationMessageFor(model => model.AddRequestsToNopLog)
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-3">
+                        @Html.NopLabelFor(model => model.AddOrderXmlToNopLog)
+                    </div>
+                    <div class="col-md-9">
+                        @Html.EditorFor(model => model.AddOrderXmlToNopLog)
+                        @Html.ValidationMessageFor(model => model.AddOrderXmlToNopLog)
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-3">
+                        @Html.NopLabelFor(model => model.AddShipNotifyXmlToNopLog)
+                    </div>
+                    <div class="col-md-9">
+                        @Html.EditorFor(model => model.AddShipNotifyXmlToNopLog)
+                        @Html.ValidationMessageFor(model => model.AddShipNotifyXmlToNopLog)
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-3">
+                        @Html.NopLabelFor(model => model.PopulateLineItemFieldWith)
+                    </div>
+                    <div class="col-md-9">
+                        @Html.DropDownListFor(model => model.PopulateLineItemFieldWith, Model.AvailableLineItemFields)
+                        @Html.ValidationMessageFor(model => model.PopulateLineItemFieldWith)
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-3">
+                        @Html.NopLabelFor(model => model.PopulateSkuFieldWith)
+                    </div>
+                    <div class="col-md-9">
+                        @Html.DropDownListFor(model => model.PopulateSkuFieldWith, Model.AvailableSkuFields)
+                        @Html.ValidationMessageFor(model => model.PopulateSkuFieldWith)
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-3">
+                        @Html.NopLabelFor(model => model.IncludePayPalInfoInNotes)
+                    </div>
+                    <div class="col-md-9">
+                        @Html.EditorFor(model => model.IncludePayPalInfoInNotes)
+                        @Html.ValidationMessageFor(model => model.IncludePayPalInfoInNotes)
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-3">
+                        @Html.NopLabelFor(model => model.AddCheckoutAttributesAsLineItems)
+                    </div>
+                    <div class="col-md-9">
+                        @Html.EditorFor(model => model.AddCheckoutAttributesAsLineItems)
+                        @Html.ValidationMessageFor(model => model.AddCheckoutAttributesAsLineItems)
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-md-3">
+                        @Html.NopLabelFor(model => model.SuppressOrdersThatAreNotShippable)
+                    </div>
+                    <div class="col-md-9">
+                        @Html.EditorFor(model => model.SuppressOrdersThatAreNotShippable)
+                        @Html.ValidationMessageFor(model => model.SuppressOrdersThatAreNotShippable)
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-3">
+                        @Html.NopLabelFor(model => model.SuppressOrderItemsThatAreNotShippable)
+                    </div>
+                    <div class="col-md-9">
+                        @Html.EditorFor(model => model.SuppressOrderItemsThatAreNotShippable)
+                        @Html.ValidationMessageFor(model => model.SuppressOrderItemsThatAreNotShippable)
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-3">
+                        @Html.NopLabelFor(model => model.AddDiscountTotalToLineItems)
+                    </div>
+                    <div class="col-md-9">
+                        @Html.EditorFor(model => model.AddDiscountTotalToLineItems)
+                        @Html.ValidationMessageFor(model => model.AddDiscountTotalToLineItems)
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-3">
+                        @Html.NopLabelFor(model => model.IncludeNonPaidPoOrders)
+                    </div>
+                    <div class="col-md-9">
+                        @Html.EditorFor(model => model.IncludeNonPaidPoOrders)
+                        @Html.ValidationMessageFor(model => model.IncludeNonPaidPoOrders)
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-3">
+                        @Html.NopLabelFor(model => model.AddQtyToAttributeValue)
+                    </div>
+                    <div class="col-md-9">
+                        @Html.EditorFor(model => model.AddQtyToAttributeValue)
+                        @Html.ValidationMessageFor(model => model.AddQtyToAttributeValue)
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-3">
+                        @Html.NopLabelFor(model => model.AddSkuToAttributeValue)
+                    </div>
+                    <div class="col-md-9">
+                        @Html.EditorFor(model => model.AddSkuToAttributeValue)
+                        @Html.ValidationMessageFor(model => model.AddSkuToAttributeValue)
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-3">
+                        @Html.NopLabelFor(model => model.UseSubTotalDiscountIncTax)
+                    </div>
+                    <div class="col-md-9">
+                        @Html.EditorFor(model => model.UseSubTotalDiscountIncTax)
+                        @Html.ValidationMessageFor(model => model.UseSubTotalDiscountIncTax)
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-3">
+                        @Html.NopLabelFor(model => model.SendCanceledOrders)
+                    </div>
+                    <div class="col-md-9">
+                        @Html.EditorFor(model => model.SendCanceledOrders)
+                        @Html.ValidationMessageFor(model => model.SendCanceledOrders)
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-3">
+                        @Html.NopLabelFor(model => model.KeepSettingsWhenUninstalled)
+                    </div>
+                    <div class="col-md-9">
+                        @Html.EditorFor(model => model.KeepSettingsWhenUninstalled)
+                        @Html.ValidationMessageFor(model => model.KeepSettingsWhenUninstalled)
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-3">
+                        &nbsp;
+                    </div>
+                    <div class="col-md-9">
+                        <input type="submit" name="save" class="btn bg-blue" value="@T("Admin.Common.Save")" />
+                    </div>
+                </div>
+                </div>
+        </div>
+    </div>
+}

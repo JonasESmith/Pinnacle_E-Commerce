@@ -1,0 +1,95 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - Pinnacle</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    <link rel="apple-touch-icon" sizes="57x57" href="/Content/icons/apple-touch-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="/Content/icons/apple-touch-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="/Content/icons/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="/Content/icons/apple-touch-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="/Content/icons/apple-touch-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="/Content/icons/apple-touch-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="/Content/icons/apple-touch-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="/Content/icons/apple-touch-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/Content/icons/apple-touch-icon-180x180.png">
+    <link rel="icon" type="image/png" href="/Content/icons/logo.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="/Content/icons/logo.png" sizes="192x192">
+    <link rel="icon" type="image/png" href="/Content/icons/logo.png" sizes="96x96">
+    <link rel="icon" type="image/png" href="/Content/icons/logo.png" sizes="16x16">
+    <link rel="manifest" href="/Content/icons/manifest.json">
+    <link rel="shortcut icon" href="~/Content/icons/logo.png">
+    <meta name="msapplication-TileColor" content="#ffc40d">
+    <meta name="msapplication-TileImage" content="/Content/icons/mstile-144x144.png">
+    <meta name="msapplication-config" content="/Content/icons/browserconfig.xml">
+    <meta name="theme-color" content="#ffffff">
+    <link rel="author" href="humans.txt" />
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                @Html.ActionLink("Pinnacle", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    @if (this.User.IsInRole("Sales"))
+                    {
+                        <li>@Html.ActionLink("Store", "Index", "Catalog")</li>
+                    }
+                    else
+                    {
+                        <li>@Html.ActionLink("About", "About", "Home")</li>
+                    }
+                </ul>
+
+                @if (this.User.IsInRole("Administrator") || this.User.IsInRole("Sales"))
+                {
+                    <ul class="nav navbar-nav navbar-right">
+                        <li id="cart" />
+                    </ul>
+                }
+                @Html.Partial("_LoginPartial")
+            </div>
+        </div>
+    </div>
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer>
+            <p style="text-align: center;">&copy; @DateTime.Now.Year - Pinnacle Distribution</p>
+        </footer>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+
+    <script language="javascript" type="text/javascript">
+        $(document).ready(function () {
+            refreshCartSummary();
+            window.addEventListener("pageshow", function (e) {
+                refreshCartSummary();
+            }, false);
+        });
+
+        function refreshCartSummary() {
+            $.ajax({
+                url: "@(Url.Action("CartSummary","ShoppingCart"))",
+                cache: false,
+                dataType: "html",
+                success: function (data) {
+                    $("#cart").html(data);
+                }
+            });
+        }
+    </script>
+</body>
+</html>

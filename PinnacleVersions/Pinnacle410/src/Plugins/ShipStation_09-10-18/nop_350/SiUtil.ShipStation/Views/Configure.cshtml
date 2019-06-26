@@ -1,0 +1,187 @@
+﻿@{
+    Layout = "";
+}
+@model Nop.Plugin.SiUtil.ShipStation.Models.ConfigurationModel
+@using Nop.Web.Framework;
+@using Nop.Plugin.SiUtil.ShipStation;
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <table class="adminContent">
+        <tr>
+            <td class="adminTitle">
+                Plugin Version Number:
+            </td>
+            <td class="adminData">
+                @SiUtilShipStationPlugInVersion.CurrentVersion
+            </td>
+        </tr>
+        <tr>
+            <td class="adminTitle">
+                @Html.NopLabelFor(model => model.Ssl):
+            </td>
+            <td class="adminData">
+                @Html.EditorFor(model => model.Ssl)
+                @Html.ValidationMessageFor(model => model.Ssl)
+            </td>
+        </tr>
+        <tr>
+            <td class="adminTitle">
+                @Html.NopLabelFor(model => model.LicenseKey):
+            </td>
+            <td class="adminData">
+                @Html.EditorFor(model => model.LicenseKey)
+                @Html.ValidationMessageFor(model => model.LicenseKey)
+            </td>
+        </tr>
+        <tr>
+            <td class="adminTitle">
+                @Html.NopLabelFor(model => model.ShipStationURL):
+            </td>
+            <td class="adminData">
+                @(Model.ShipStationURL)
+            </td>
+        </tr>
+        <tr>
+            <td class="adminTitle">
+                @Html.NopLabelFor(model => model.PageSize):
+            </td>
+            <td class="adminData">
+                @Html.EditorFor(model => model.PageSize)
+            </td>
+        </tr>
+        <tr>
+            <td class="adminTitle">
+                @Html.NopLabelFor(model => model.OrderStatusToCompleteWhenShipped):
+            </td>
+            <td class="adminData">
+                @Html.EditorFor(model => model.OrderStatusToCompleteWhenShipped)
+                @Html.ValidationMessageFor(model => model.OrderStatusToCompleteWhenShipped)
+            </td>
+        </tr>
+        <tr>
+            <td class="adminTitle">
+                @Html.NopLabelFor(model => model.IncludeCustomerOrderNotes):
+            </td>
+            <td class="adminData">
+                @Html.EditorFor(model => model.IncludeCustomerOrderNotes)
+                @Html.ValidationMessageFor(model => model.IncludeCustomerOrderNotes)
+            </td>
+        </tr>
+        <tr>
+            <td class="adminTitle">
+                @Html.NopLabelFor(model => model.IncludeNopOrderNotes):
+            </td>
+            <td class="adminData">
+                @Html.EditorFor(model => model.IncludeNopOrderNotes)
+                @Html.ValidationMessageFor(model => model.IncludeNopOrderNotes)
+            </td>
+        </tr>
+        <tr>
+            <td class="adminTitle">
+                @Html.NopLabelFor(model => model.SendShippingEmails):
+            </td>
+            <td class="adminData">
+                @Html.EditorFor(model => model.SendShippingEmails)
+                @Html.ValidationMessageFor(model => model.SendShippingEmails)
+            </td>
+        </tr>
+        <tr>
+            <td class="adminTitle">
+                @Html.NopLabelFor(model => model.AddRequestsToNopLog):
+            </td>
+            <td class="adminData">
+                @Html.EditorFor(model => model.AddRequestsToNopLog)
+                @Html.ValidationMessageFor(model => model.AddRequestsToNopLog)
+            </td>
+        </tr>
+        <tr>
+            <td class="adminTitle">
+                @Html.NopLabelFor(model => model.AddOrderXmlToNopLog):
+            </td>
+            <td class="adminData">
+                @Html.EditorFor(model => model.AddOrderXmlToNopLog)
+                @Html.ValidationMessageFor(model => model.AddOrderXmlToNopLog)
+            </td>
+        </tr>
+        <tr>
+            <td class="adminTitle">
+                @Html.NopLabelFor(model => model.AddShipNotifyXmlToNopLog):
+            </td>
+            <td class="adminData">
+                @Html.EditorFor(model => model.AddShipNotifyXmlToNopLog)
+                @Html.ValidationMessageFor(model => model.AddShipNotifyXmlToNopLog)
+            </td>
+        </tr>
+        <tr>
+            <td class="adminTitle">
+                @Html.NopLabelFor(model => model.PopulateLineItemFieldWith):
+            </td>
+            <td class="adminData">
+                @Html.DropDownListFor(model => model.PopulateLineItemFieldWith, Model.AvailableLineItemFields)
+                @Html.ValidationMessageFor(model => model.PopulateLineItemFieldWith)
+            </td>
+        </tr>
+        <tr>
+            <td class="adminTitle">
+                @Html.NopLabelFor(model => model.PopulateSkuFieldWith):
+            </td>
+            <td class="adminData">
+                @Html.DropDownListFor(model => model.PopulateSkuFieldWith, Model.AvailableSkuFields)
+                @Html.ValidationMessageFor(model => model.PopulateSkuFieldWith)
+            </td>
+        </tr>
+        <tr>
+            <td class="adminTitle">
+                @Html.NopLabelFor(model => model.IncludePayPalInfoInNotes):
+            </td>
+            <td class="adminData">
+                @Html.EditorFor(model => model.IncludePayPalInfoInNotes)
+                @Html.ValidationMessageFor(model => model.IncludePayPalInfoInNotes)
+            </td>
+        </tr>
+        <tr>
+            <td class="adminTitle">
+                @Html.NopLabelFor(model => model.AddCheckoutAttributesAsLineItems):
+            </td>
+            <td class="adminData">
+                @Html.EditorFor(model => model.AddCheckoutAttributesAsLineItems)
+                @Html.ValidationMessageFor(model => model.AddCheckoutAttributesAsLineItems)
+            </td>
+        </tr>
+        <tr>
+            <td class="adminTitle">
+                @Html.NopLabelFor(model => model.SuppressOrdersThatAreNotShippable):
+            </td>
+            <td class="adminData">
+                @Html.EditorFor(model => model.SuppressOrdersThatAreNotShippable)
+                @Html.ValidationMessageFor(model => model.SuppressOrdersThatAreNotShippable)
+            </td>
+        </tr>
+        <tr>
+            <td class="adminTitle">
+                @Html.NopLabelFor(model => model.SuppressOrderItemsThatAreNotShippable):
+            </td>
+            <td class="adminData">
+                @Html.EditorFor(model => model.SuppressOrderItemsThatAreNotShippable)
+                @Html.ValidationMessageFor(model => model.SuppressOrderItemsThatAreNotShippable)
+            </td>
+        </tr>
+        <tr>
+            <td class="adminTitle">
+                @Html.NopLabelFor(model => model.AddDiscountTotalToLineItems):
+            </td>
+            <td class="adminData">
+                @Html.EditorFor(model => model.AddDiscountTotalToLineItems)
+                @Html.ValidationMessageFor(model => model.AddDiscountTotalToLineItems)
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <br /><br />
+                <button type="submit" name="save" value="save" class="t-button">Save</button>
+            </td>
+        </tr>
+    </table>
+}

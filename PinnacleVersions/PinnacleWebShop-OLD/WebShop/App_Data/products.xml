@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- List of amazon.com search on 'asp.net mvc', sorted by 'New and Popular', as of date 2015-02-21 -->
+<products>
+	<product id="001">
+		<name>150MG CBD Oil</name>
+		<description><![CDATA[Pinnacles very own world renown all natural full-spectrum CBD, birthed in the Rocky Mountains of Colorado! Whether it be back pain, anxiety, or depression, our CBD does it all! Only a few clicks away from changing your life forever! (150mg CBD concentration in a 15ml bottle)]]></description>
+		<price>12.50</price>
+    <msrp>24.99</msrp>
+		<image>001.jpg</image>
+	</product>
+  
+  
+	<product id="002">
+		<name>300mg CBD Oil</name>
+		<description><![CDATA[Pinnacles very own world renown all natural full-spectrum CBD, birthed in the Rocky Mountains of Colorado! Whether it be back pain, anxiety, or depression, our CBD does it all! Only a few clicks away from changing your life forever! (300mg CBD concentration in a 15ml bottle)]]></description>
+		<price>22.50</price>
+    <msrp>44.99</msrp>
+		<image>002.jpg</image>
+	</product>
+  
+  
+	<product id="003">
+		<name>600mg CBD Oil</name>
+		<description><![CDATA[Pinnacles very own world renown all natural full-spectrum CBD, birthed in the Rocky Mountains of Colorado! Whether it be back pain, anxiety, or depression, our CBD does it all! Only a few clicks away from changing your life forever! (600mg CBD concentration in a 30ml bottle)]]></description>
+		<price>37.50</price>
+    <msrp>74.99</msrp>
+		<image>003.jpg</image>
+	</product>
+  
+  
+	<product id="004">
+		<name>1200mg CBD Oil</name>
+		<description><![CDATA[Pinnacles very own world renown all natural full-spectrum CBD, birthed in the Rocky Mountains of Colorado! Whether it be back pain, anxiety, or depression, our CBD does it all! Only a few clicks away from changing your life forever! (1200mg CBD concentration in a 30ml bottle)]]></description>
+		<price>55.00</price>
+    <msrp>109.99</msrp>
+		<image>004.jpg</image>
+	</product>
+  
+  
+	<product id="005">
+		<name>75mg Gummies</name>
+		<description><![CDATA[Tasty and sweet gummy rings packed with CBD make these treats an easy and stressless way to get your daily dose of CBD! Contains 3 gummies. (NOT FULL SPECTRUM) ]]></description>
+		<price>10.00</price>
+    <msrp>19.99</msrp>
+		<image>005.jpg</image>
+	</product>
+  
+  
+	<product id="006">
+		<name>150mg Gummies</name>
+		<description><![CDATA[Tasty and sweet gummy rings packed with CBD make these treats an easy and stressless way to get your daily dose of CBD! Contains 6 gummies. (NOT FULL SPECTRUM) ]]></description>
+		<price>15.00</price>
+    <msrp>29.99</msrp>
+		<image>006.jpg</image>
+	</product>
+  
+  
+	<product id="007">
+		<name>300mg Gummies</name>
+		<description><![CDATA[Tasty and sweet gummy rings packed with CBD make these treats an easy and stressless way to get your daily dose of CBD! Contains 12 gummies. (NOT FULL SPECTRUM) ]]></description>
+		<price>25.00</price>
+    <msrp>49.99</msrp>
+		<image>007.jpg</image>
+	</product>
+
+  <product id="008">
+    <name>CBD Crumble</name>
+    <description><![CDATA[Cake Beyond Dreams - David G 300mg Flavored CBD]]></description>
+    <price>27.50</price>
+    <msrp>54.99</msrp>
+    <image>015.jpg</image>
+  </product>
+
+  <product id="009">
+    <name>Cake Beyond Dreams - David G 300mg Flavored CBD</name>
+    <description><![CDATA[David Goerlitz, the former "Winston Man" now vape advocate, has teamed up with Pinnacle CBD to bring you a delicious line of flavored CBD. 300mg of Pinnacle CBD in a 60ml bottle. Cake Beyond Dreams taste like a delicious moist cake topped with strawberry sauce. *Can be vaped or taken sublingual]]></description>
+    <price>25.00</price>
+    <msrp>49.99</msrp>
+    <image>016.jpg</image>
+  </product>
+
+  <product id="010">
+    <name>Crimson Baked Dessert - David G 300mg Flavored CBD</name>
+    <description><![CDATA[David Goerlitz, the former "Winston Man" now vape advocate, has teamed up with Pinnacle CBD to bring you a delicious line of flavored CBD. 300mg of Pinnacle CBD in a 60ml bottle. Crimson Baked Dessert tastes like a flakey pastry filled with a delicious apple filling and just a touch of cinnamon. *Can be vaped or taken sublingual]]></description>
+    <price>25.00</price>
+    <msrp>49.99</msrp>
+    <image>016.jpg</image>
+  </product>
+
+  <product id="011">
+    <name>Creamy Berry Dessert - David G 300mg Flavored CBD</name>
+    <description><![CDATA[David Goerlitz, the former "Winston Man" now vape advocate, has teamed up with Pinnacle CBD to bring you a delicious line of flavored CBD. 300mg of Pinnacle CBD in a 60ml bottle. Creamy Berry Dessert is a creamy delicious strawberry yogurt. *Can be vaped or taken sublingual]]></description>
+    <price>25.00</price>
+    <msrp>49.99</msrp>
+    <image>016.jpg</image>
+  </product>
+
+  <product id="012">
+    <name>Coffee Bean Delight - David G 300mg Flavored CBD</name>
+    <description><![CDATA[David Goerlitz, the former "Winston Man" now vape advocate, has teamed up with Pinnacle CBD to bring you a delicious line of flavored CBD. 300mg of Pinnacle CBD in a 60ml bottle. Coffee Bean Delight tastes like an amazing cup of coffee with a splash of hazelnut creamer.  *Can be vaped or taken sublingual]]></description>
+    <price>25.00</price>
+    <msrp>49.99</msrp>
+    <image>016.jpg</image>
+  </product>
+
+  <product id="013">
+    <name>Coconut Blast Drink - David G 300mg Flavored CBD</name>
+    <description><![CDATA[David Goerlitz, the former "Winston Man" now vape advocate, has teamed up with Pinnacle CBD to bring you a delicious line of flavored CBD. 300mg of Pinnacle CBD in a 60ml bottle. Do you like Pina Coladas? Taste the amazing flavor of Coconut Blast Drink  *Can be vaped or taken sublingual]]></description>
+    <price>25.00</price>
+    <msrp>49.99</msrp>
+    <image>016.jpg</image>
+  </product>
+  
+	<product id="014">
+		<name>CBD Beard Oil - The Bulge</name>
+		<description><![CDATA[The Bulge- That smell that screams I am all that is MAN! For the rugged outdoors man.
+Give your beard what it needs to stand up big and strong. Our CBD beard oil can help with coarse hair, hair growth, dry or irritated skin and many other conditions your beard is suffering from. On top of all those benefits, it will also give your beard a better look and give you a more "kept" look of manliness. As an added bonus the smell is something that will attract all walks of life. You will thank us later...
+Directions- 10 drops in the palm of your hand and lather into your beard. Use a comb to enhance the look of your lady catcher. 
+These statements have not been evaluated by the FDA but 9 out of 10 women have evaluated the men we used as testers. Consult a doctor before use of any natural product or intense sexual activity.
+These statements have not been evaluated by the FDA but 9 out of 10 women have evaluated the men we used as testers. Consult a doctor before use of any natural product or intense sexual activity.
+ 
+Ingredients: Caprylic Capric Triglycerides, Sweet Almond Oil, Jojoba Oil, Grapeseed Oil, Avocado Oil, Hemp Seed Oil, Tea Tree Oil, Orange Oil, Peppermint Oil, Hemp Plant extract (Full Spectrum CBD), Natural and Artificial Fragrance Oils.]]></description>
+		<price>15.00</price>
+    <msrp>29.99</msrp>
+		<image>008.jpg</image>
+	</product>
+  
+  
+	<product id="015">
+		<name>CBD Beard Oil - Bush Lover</name>
+		<description><![CDATA[Bush Lover- Sure to attract the ladies. When you're looking for that delightful smell for a night out on the town.
+
+Give your beard what it needs to stand up big and strong. Our CBD beard oil can help with coarse hair, hair growth, dry or irritated skin and many other conditions your beard is suffering from. On top of all those benefits, it will also give your beard a better look and give you a more "kept" look of manliness. As an added bonus the smell is something that will attract all walks of life. You will thank us later...
+
+Directions- 10 drops in the palm of your hand and lather into your beard. Use a comb to enhance the look of your lady catcher.
+
+These statements have not been evaluated by the FDA but 9 out of 10 women have evaluated the men we used as testers. Consult a doctor before use of any natural product or intense sexual activity.
+Ingredients: Caprylic Capric Triglycerides, Sweet Almond Oil, Jojoba Oil, Grapeseed Oil, Avocado Oil, Hemp Seed Oil, Tea Tree Oil, Orange Oil, Peppermint Oil, Hemp Plant extract (Full Spectrum CBD), Natural and Artificial Fragrance Oils.]]></description>
+		<price>15.00</price>
+    <msrp>29.99</msrp>
+		<image>009.jpg</image>
+	</product>
+  
+  
+	<product id="016">
+		<name>CBD Beard Oil - Sex Panther</name>
+		<description><![CDATA[Sex Panther- A combination of wooded mountains and rainbows. When you want to smell amazing but also still need a touch of the mountain man. 60% of the time it works every time.
+
+Give your beard what it needs to stand up big and strong. Our CBD beard oil can help with coarse hair, hair growth, dry or irritated skin and many other conditions your beard is suffering from. On top of all those benefits, it will also give your beard a better look and give you a more "kept" look of manliness. As an added bonus the smell is something that will attract all walks of life. You will thank us later...
+
+Directions- 10 drops in the palm of your hand and lather into your beard. Use a comb to enhance the look of your lady catcher.
+
+These statements have not been evaluated by the FDA but 9 out of 10 women have evaluated the men we used as testers. Consult a doctor before use of any natural product or intense sexual activity.
+
+Ingredients: Caprylic Capric Triglycerides, Sweet Almond Oil, Jojoba Oil, Grapeseed Oil, Avocado Oil, Hemp Seed Oil, Tea Tree Oil, Orange Oil, Peppermint Oil, Hemp Plant extract (Full Spectrum CBD), Natural and Artificial Fragrance Oils.]]></description>
+	<price>15.00</price>
+    <msrp>29.99</msrp>
+		<image>010.jpg</image>
+	</product>
+  
+	<product id="017">
+		<name>Honey Sticks (PK of 5)</name>
+		<description><![CDATA[A 5 pack of honey-infused 10mg CBD Honey Sticks. A full stick is equivalent to a full recommended dosage of CBD.]]></description>
+		<price>7.50</price>
+    <msrp>14.99</msrp>
+		<image>011.jpg</image>
+	</product>
+  
+	<product id="018">
+		<name>Honey Syringe (PK of 1)</name>
+		<description><![CDATA[150mg of honey-infused CBD in a 3ml Syringe is a perfect way to satisfy your Full Spectrum CBD cravings!]]></description>
+		<price>12.50</price>
+    <msrp>24.99</msrp>
+		<image>012.jpg</image>
+	</product>
+  
+	<product id="019">
+		<name>Full Spectrum CBD Ground Coffee</name>
+		<description><![CDATA[Delicious 160mg ground full spectrum CBD coffee. This amazing blend of premium coffee and full-spectrum CBD helps a rough morning become much more manageable.]]></description>
+		<price>17.50</price>
+    <msrp>34.99</msrp>
+		<image>013.jpg</image>
+	</product>
+  
+	<product id="020">
+		<name>Dog Treats</name>
+		<description><![CDATA[Not only does CBD help humans live a happier and healthier lifestyle, but it can also help the ones we love the most live worry free. Dogs. These bacon and cheese flavored treats have a whopping 120mg of full-spectrum CBD per container.]]></description>
+		<price>19.00</price>
+    <msrp>37.99</msrp>
+		<image>014.jpg</image>
+	</product>
+</products>

@@ -1,0 +1,232 @@
+﻿@{
+    ViewBag.Title = "Pinnacle Wholesale";
+}
+
+@using WebShop.Models
+@using PagedList
+@using PagedList.Mvc
+
+@model IPagedList<Product>
+
+<div>
+    <p> </p>
+</div>
+
+&nbsp;
+<h2><i class="fa fa-shopping-cart"></i> @ViewBag.Title</h2>
+<div id="content">
+    @* 
+        This for loop 
+    *@
+
+    @for (int index = 0; index < Model.Count; index++)
+    {
+        <article class="product">
+            <div class="row">
+                <div class="col-md-2 col-xs-12">
+                    <a href="@Url.Action("Product", "Catalog", new { id = Model[index].Id })"><img class="product-thumbnail" src="~/Content/products/@Model[index].Image" alt="@Model[index].Name" /></a>
+                </div>
+                <div class="col-md-10 col-xs-12">
+                    <form>
+                        <br />
+                        <h3>
+                            <a class="btn btn-primary" href="@Url.Action("Product", "Catalog", new { id = Model[index].Id })"><i class="fa"></i> @Model[index].Name &raquo;</a>
+                        </h3>
+
+                        <span style="margin-left: 1px;"> Price: <strong>@Html.DisplayFor(m => Model[index].Price)</strong>  </span> &nbsp; &nbsp; &nbsp; &nbsp; <span style="color:darkgray;">  MSRP : <strong> @Html.DisplayFor(m => Model[index].MSRP)</strong> </span>
+                        &nbsp;
+                        <button class="btn btn-success pull-right" style="vertical-align: baseline;" data-assigned-id="@Model[index].Id" onclick="AddToCartBtn(this); return false" id="addToCartButton">
+                            <i class="fa fa-shopping-cart"></i> Add to cart &raquo;
+                        </button>
+
+                        <input style="width:45px; text-align: center; margin-top: 4px; margin-right: 5px;" type="number" class="pull-right"
+                               id="@(String.Format("textQuant{0}", Model[index].Id))" pattern="\d+" min="0"
+                               step="1" value="" required="required" />
+                        <strong>
+                            <span class="pull-right" style="font-size:16px; margin-top: 5px;"> Qty: &nbsp; </span>
+                        </strong>
+                    </form>
+                </div>
+            </div>
+        </article>
+    }
+
+    <div class="contentPager">
+        @Html.PagedListPager(Model, page => Url.Action("Index", new { page }), PagedListRenderOptions.OnlyShowFivePagesAtATime)
+    </div>
+</div>
+
+@section scripts
+{
+    <script language="javascript" type="text/javascript">
+        $(document).ready(function () {
+            if (window.history && history.pushState) {
+                $(window).bind('popstate', function (e) {
+                    loadItems(location.pathname + location.search);
+                });
+                doPager();
+            }
+        });
+
+        function AddAllItems() {
+            
+            var i;
+            for (i = 1; i < 21; i++) {
+                var num = i.toString();
+                while (num.length < 3) num = "0" + num;
+
+                name = "textQuant" + num;
+                if (document.getElementById(name).value > 0) {
+                    var input = i.toString();
+                    while (input.length < 3) input = "0" + input;
+
+                    /// This is where the logic for getting the number of items selected will be used
+                    var numToAdd = document.getElementById(name).value;
+
+                    /// Bellow is where I use a replacement to replace "-1" to the input passed intot the script
+                    var link = "@(Url.Action("AddItemToCart", "ShoppingCart", new { id = "-1", quant = "-2"}))";
+                    link = link.replace("-1", input);
+                    link = link.replace("-2", numToAdd);
+
+                    /// Posts the entry to the cart service :)
+                    $.post(link, null, function (data) {
+                        $.ajax({
+                            url: "@(Url.Action("CartSummary","ShoppingCart"))",
+                            cache: false,
+                            dataType: "html",
+                            success: function (data) {
+                                $("#cart").html(data);
+                            }
+                        });
+                 });
+                }
+            }
+        }
+
+        function AlertFormCheck(num, passedValue) {
+            if (num > 1) {
+                AddAllItems();
+
+                bootbox.dialog({
+                    message: "Would you like to add all selected items to cart? ",
+                    title: "Continue to cart",
+                    buttons: {
+                        Continue: {
+                            label: "Continue Shopping",
+                            className: "btn-warning",
+                            callback: function () {
+                                location.reload();
+                                /// Can be empty for now. 
+                            }
+                        },
+                        Confirm: {
+                            label: "Confirm & Navigate to Cart",
+                            className: "btn-success",
+                            callback: function () {
+                                window.location.href = '/ShoppingCart/Index';
+                            }
+                        }
+                    }
+                });
+            }
+            else {
+
+                 /// <summary>
+                 ///     The data-assigned-id member is used for the onclick="AddtoCartBtn(this) feild.
+                 ///     When passed correclty it is then used for the passedValue that is used in this
+                 ///     Method.
+                 /// </summary>s
+
+                 /// https://stackoverflow.com/questions/18311503/how-to-pass-a-razor-value-to-a-jquery-function-in-an-mvc-view
+                 /// This is where the variable from the <button> area is being passed into input.
+                 var input = $(passedValue).data('assigned-id');
+
+                 /// This is where the logic for getting the number of items selected will be used
+                 var name = "textQuant" + input;
+                 var numToAdd = document.getElementById(name).value;
+
+                 /// Bellow is where I use a replacement to replace "-1" to the input passed intot the script
+                 var link = "@(Url.Action("AddItemToCart", "ShoppingCart", new { id = "-1", quant = "-2"}))";
+                 link = link.replace("-1", input);
+                 link = link.replace("-2", numToAdd);
+                 
+                 /// <summary> Updates the cart object to reflect the number of items in the users cart. </summary>
+                 $.post(link, null, function (data) {
+                     $.ajax({
+                         url: "@(Url.Action("CartSummary","ShoppingCart"))",
+                         cache: false,
+                         dataType: "html",
+                         success: function (data) {
+                             $("#cart").html(data);
+                         }
+                     });
+                 });
+
+                bootbox.dialog({
+                    message: "Would you like to continue shopping?",
+                    title: "Continue to cart",
+                    buttons: {
+                        success: {
+                            label: "Continue shopping",
+                            className: "btn-warning",
+                            callback: function () {
+                                location.reload();
+                                /// <summary>       This actually doesn't need to do anything as it will always
+                                ///                     add the item to the cart above <summary>
+                            }
+                        },
+                        danger: {
+                            label: "Go to cart",
+                            className: "btn-success",
+                            callback: function () {
+                                /// <summary> Redirects to the shopping cart page on confirmation </summary>
+                                window.location.href = '/ShoppingCart/Index';
+                            }
+                        }
+                    }
+                });
+            }
+        }
+
+        function checkStoreForm() {
+            var count = 0;
+            var i;
+            for (i = 1; i < 15; i++) {
+                var num = i.toString();
+                while (num.length < 3) num = "0" + num;
+
+                name = "textQuant" + num;
+                if (document.getElementById(name).value > 0) {
+                    count++;
+                }
+            }
+
+            return count;
+        }
+
+        function AddToCartBtn(passedValue) {
+
+            /// <summary>
+            ///     This function checks all form entries to check if the user has tried to add
+            ///     multiple items to the cart at once.
+            ///</summary >
+            var num = checkStoreForm();
+
+            AlertFormCheck(num, passedValue);
+        }
+
+        function doPager() {
+            $('.contentPager a[href]').click(function (e) {
+                e.preventDefault();
+                loadItems($(this).attr('href'));
+                history.pushState(null, null, $(this).attr('href'));
+            });
+        }
+
+        function loadItems(url) {
+            $('#content').empty().load(url + ' #content', function () {
+                doPager();
+            });
+        }
+    </script>
+}

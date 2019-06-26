@@ -1,0 +1,240 @@
+﻿@model Nop.Plugin.SiUtil.ShipStation.Models.ConfigurationModel
+
+@{
+    Layout = "_ConfigurePlugin";
+}
+
+@using Nop.Web.Framework;
+@using Nop.Plugin.SiUtil.ShipStation;
+
+@await Component.InvokeAsync("StoreScopeConfiguration")
+<form asp-controller="ShipStation" asp-action="Configure" method="post">
+    <div class="panel-group">
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <div class="form-group">
+                    <div class="col-md-3">
+                        Plugin Version Number
+                    </div>
+                    <div class="col-md-9">
+                        @SiUtilShipStationPlugInVersion.CurrentVersion
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-3">
+                        <nop-label asp-for="LicenseKey" />
+                    </div>
+                    <div class="col-md-9">
+                        <nop-editor asp-for="LicenseKey" />
+                        <span asp-validation-for="LicenseKey"></span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-3">
+                        <nop-label asp-for="ShipStationURL" />
+                    </div>
+                    <div class="col-md-9">
+                        <nop-editor asp-for="ShipStationURL" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-3">
+                        <nop-label asp-for="PageSize" />
+                    </div>
+                    <div class="col-md-9">
+                        <nop-editor asp-for="PageSize" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-3">
+                        <nop-label asp-for="OrderStatusToCompleteWhenShipped" />
+                    </div>
+                    <div class="col-md-9">
+                        <nop-editor asp-for="OrderStatusToCompleteWhenShipped" />
+                        <span asp-validation-for="OrderStatusToCompleteWhenShipped"></span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-3">
+                        <nop-label asp-for="IncludeCustomerOrderNotes" />
+                    </div>
+                    <div class="col-md-9">
+                        <nop-editor asp-for="IncludeCustomerOrderNotes" />
+                        <span asp-validation-for="IncludeCustomerOrderNotes"></span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-3">
+                        <nop-label asp-for="IncludeNopOrderNotes" />
+                    </div>
+                    <div class="col-md-9">
+                        <nop-editor asp-for="IncludeNopOrderNotes" />
+                        <span asp-validation-for="IncludeNopOrderNotes"></span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-3">
+                        <nop-label asp-for="SendShippingEmails" />
+                    </div>
+                    <div class="col-md-9">
+                        <nop-editor asp-for="SendShippingEmails" />
+                        <span asp-validation-for="SendShippingEmails"></span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-3">
+                        <nop-label asp-for="AddRequestsToNopLog" />
+                    </div>
+                    <div class="col-md-9">
+                        <nop-editor asp-for="AddRequestsToNopLog" />
+                        <span asp-validation-for="AddRequestsToNopLog"></span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-3">
+                        <nop-label asp-for="AddOrderXmlToNopLog" />
+                    </div>
+                    <div class="col-md-9">
+                        <nop-editor asp-for="AddOrderXmlToNopLog" />
+                        <span asp-validation-for="AddOrderXmlToNopLog"></span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-3">
+                        <nop-label asp-for="AddShipNotifyXmlToNopLog" />
+                    </div>
+                    <div class="col-md-9">
+                        <nop-editor asp-for="AddShipNotifyXmlToNopLog" />
+                        <span asp-validation-for="AddShipNotifyXmlToNopLog"></span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-3">
+                        <nop-label asp-for="PopulateLineItemFieldWith" />
+                    </div>
+                    <div class="col-md-9">
+                        <nop-select asp-for="PopulateLineItemFieldWith" asp-items="Model.AvailableLineItemFields" />
+                        <span asp-validation-for="PopulateLineItemFieldWith"></span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-3">
+                        <nop-label asp-for="PopulateSkuFieldWith" />
+                    </div>
+                    <div class="col-md-9">
+                        <nop-select asp-for="PopulateSkuFieldWith" asp-items="Model.AvailableSkuFields" />
+                        <span asp-validation-for="PopulateSkuFieldWith"></span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-3">
+                        <nop-label asp-for="IncludePayPalInfoInNotes" />
+                    </div>
+                    <div class="col-md-9">
+                        <nop-editor asp-for="IncludePayPalInfoInNotes" />
+                        <span asp-validation-for="IncludePayPalInfoInNotes"></span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-3">
+                        <nop-label asp-for="AddCheckoutAttributesAsLineItems" />
+                    </div>
+                    <div class="col-md-9">
+                        <nop-editor asp-for="AddCheckoutAttributesAsLineItems" />
+                        <span asp-validation-for="AddCheckoutAttributesAsLineItems"></span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-md-3">
+                        <nop-label asp-for="SuppressOrdersThatAreNotShippable" />
+                    </div>
+                    <div class="col-md-9">
+                        <nop-editor asp-for="SuppressOrdersThatAreNotShippable" />
+                        <span asp-validation-for="SuppressOrdersThatAreNotShippable"></span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-3">
+                        <nop-label asp-for="SuppressOrderItemsThatAreNotShippable" />
+                    </div>
+                    <div class="col-md-9">
+                        <nop-editor asp-for="SuppressOrderItemsThatAreNotShippable" />
+                        <span asp-validation-for="SuppressOrderItemsThatAreNotShippable"></span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-3">
+                        <nop-label asp-for="AddDiscountTotalToLineItems" />
+                    </div>
+                    <div class="col-md-9">
+                        <nop-editor asp-for="AddDiscountTotalToLineItems" />
+                        <span asp-validation-for="AddDiscountTotalToLineItems"></span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-3">
+                        <nop-label asp-for="IncludeNonPaidPoOrders" />
+                    </div>
+                    <div class="col-md-9">
+                        <nop-editor asp-for="IncludeNonPaidPoOrders" />
+                        <span asp-validation-for="IncludeNonPaidPoOrders"></span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-3">
+                        <nop-label asp-for="AddQtyToAttributeValue" />
+                    </div>
+                    <div class="col-md-9">
+                        <nop-editor asp-for="AddQtyToAttributeValue" />
+                        <span asp-validation-for="AddQtyToAttributeValue"></span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-3">
+                        <nop-label asp-for="AddSkuToAttributeValue" />
+                    </div>
+                    <div class="col-md-9">
+                        <nop-editor asp-for="AddSkuToAttributeValue" />
+                        <span asp-validation-for="AddSkuToAttributeValue"></span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-3">
+                        <nop-label asp-for="UseSubTotalDiscountIncTax" />
+                    </div>
+                    <div class="col-md-9">
+                        <nop-editor asp-for="UseSubTotalDiscountIncTax" />
+                        <span asp-validation-for="UseSubTotalDiscountIncTax"></span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-3">
+                        <nop-label asp-for="SendCanceledOrders" />
+                    </div>
+                    <div class="col-md-9">
+                        <nop-editor asp-for="SendCanceledOrders" />
+                        <span asp-validation-for="SendCanceledOrders"></span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-3">
+                        <nop-label asp-for="KeepSettingsWhenUninstalled" />
+                    </div>
+                    <div class="col-md-9">
+                        <nop-editor asp-for="KeepSettingsWhenUninstalled" />
+                        <span asp-validation-for="KeepSettingsWhenUninstalled"></span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-3">
+                        &nbsp;
+                    </div>
+                    <div class="col-md-9">
+                        <input type="submit" name="save" class="btn bg-blue" value="@T("Admin.Common.Save")" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>

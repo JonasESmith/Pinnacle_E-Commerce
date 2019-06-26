@@ -1,0 +1,11 @@
+﻿{
+  "Group": "SiUtil",
+  "FriendlyName": "SiUtil ShipStation",
+  "SystemName": "SiUtil.ShipStation",
+  "Version": "1.08",
+  "SupportedVersions": [ "4.10" ],
+  "Author": "www.SiUtil.com, Keith Niemyjski",
+  "DisplayOrder": 1,
+  "FileName": "Nop.Plugin.SiUtil.ShipStation.dll",
+  "Description": "This plugin Downloads orders from Nop To ShipStation"
+}

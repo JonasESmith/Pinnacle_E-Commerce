@@ -1,0 +1,34 @@
+﻿@using Microsoft.AspNet.Identity
+@using System.Security.Claims
+@using System.Linq
+@using WebShop.Models
+@using System;
+@using System.Net;
+@using System.Net.Mail;
+@using System.Net.Mime;
+@using System.Threading;
+@using System.ComponentModel;
+
+@model CheckoutThanksViewModel
+
+@{
+    ViewBag.Title = "Thanks";
+
+    ClaimsIdentity claimsIdentity = User.Identity as ClaimsIdentity;
+    Claim nameClaim = claimsIdentity != null ? claimsIdentity.Claims.Where(x => x.Type == ClaimTypes.Email).FirstOrDefault() : null;
+    string userEmail = nameClaim != null ? nameClaim.Value : User.Identity.GetUserName();
+
+}
+
+<h2>Thanks for your purchase</h2>
+
+@* The bellow link goes to a stackoverflow message to teach a user how to properly
+    send an email to a user.
+    https://stackoverflow.com/questions/18326738/how-to-send-email-in-asp-net-c-sharp
+*@
+<p>This is your order id: <strong>@Model.OrderId</strong></p>
+<p>An email has been sent to <strong>@userEmail</strong></p>
+<p></p>
+<hr />
+
+<a href="@Url.Action("Index","Catalog")" role="button" class="btn btn-default btn-lg">Continue Shopping</a>

@@ -1,0 +1,8 @@
+﻿@{
+    Layout = "";
+}
+
+@model System.Int32
+
+<a href="@Url.Action("Index", "ShoppingCart")"><i class="fa fa-shopping-cart"></i> <span class="badge">@(Model > 0 ? Model.ToString() : "")</span></a>
+

@@ -1,0 +1,60 @@
+﻿body {
+    padding-bottom: 20px;
+}
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    display: block;
+
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-top: 40px;
+}
+
+/* Override the default bootstrap behavior where horizontal description lists 
+   will truncate terms that are too long to fit in the left column 
+*/
+.dl-horizontal dt {
+    white-space: normal;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+    max-width: 470px;
+}
+
+.product-thumbnail {
+	margin-top: 7px; 
+    width: 100%;
+	height: 100%; 
+    display: block;
+}
+
+.product-minithumbnail {
+	width: 65px;
+	height: 80px;
+}
+
+.product-photo {
+	width: 300px;
+	height: 320px;
+    display: block;
+}
+
+.product {
+	padding: 5px;
+	border-top: 1px solid lightgray;
+}
+
+.spinner {
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    top:0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+}

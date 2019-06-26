@@ -1,0 +1,8 @@
+﻿Group: SiUtil
+FriendlyName: SiUtil.ShipStation
+SystemName: SiUtil.ShipStation
+Version: 1.09
+SupportedVersions: 3.70
+Author: www.SiUtil.com, Keith Niemyjski
+DisplayOrder: 1
+FileName: Nop.Plugin.SiUtil.ShipStation.dll

@@ -1,0 +1,89 @@
+﻿@using WebShop.Models
+
+@model Product
+
+@{
+    ViewBag.Title = Model.Name;
+    var String = Model.Id;
+}
+
+<div>
+    <article>
+        <header>
+            <h2><i class="fa fa-book"></i> @Model.Name</h2>
+        </header>
+        <div class="row">
+            <div class="col-md-3">
+                <img class="product-photo" src="~/Content/products/@Model.Image" alt="@Model.Name" />
+            </div>
+            <div class="col-md-9">
+                <dl class="dl-horizontal pull-left">
+                    <dt>
+                        @Html.DisplayNameFor(model => model.Name)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.Name)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model.Description)
+                    </dt>
+
+                    <dd>
+                        @Html.Raw(Model.Description)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model.Price)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.Price)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model.MSRP)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.MSRP)
+                    </dd>
+                </dl>
+                <button class="btn btn-primary btn-primary-green pull-right" onclick="" id="addToCartButton"><i class="fa fa-shopping-cart"></i> Add to cart &raquo;</button>
+            </div>
+        </div>
+    </article>
+</div>
+
+<div class='notifications bottom-right'></div>
+
+@section Scripts {
+    <script type="text/javascript">
+        $(document).ready(
+            function () {
+            $("#addToCartButton").click(function () {
+                $.post("@(Url.Action("AddItemToCart", "ShoppingCart", new { id = Model.Id }))", null,
+                    function (data) {
+
+                        $.ajax({
+                            url: "@(Url.Action("CartSummary","ShoppingCart"))",
+                            cache: false,
+                            dataType: "html",
+                            success: function (data) {
+                                $("#cart").html(data);
+                            }
+                        });
+
+                        $('.bottom-right').notify({
+                            message: { text: "Item added successfully" },
+                            type: 'success',
+                            fadeOut: {
+                                delay: Math.floor(Math.random() * 500) + 2500
+                            }
+                        }).show();
+                    });
+            });
+        });
+    </script>
+}

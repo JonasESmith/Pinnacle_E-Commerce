@@ -1,0 +1,92 @@
+﻿@model ProductOverviewModel
+@using Nop.Core
+@using Nop.Core.Domain.Catalog
+@using Nop.Core.Domain.Orders
+@using Nop.Core.Domain.Tax
+@inject CatalogSettings catalogSettings
+@inject IWorkContext workContext
+@{
+    //prepare "Add to cart" AJAX link
+    var addtocartlink = "";
+    var shoppingCartTypeId = (int)ShoppingCartType.ShoppingCart;
+    var quantity = 1;
+
+    if (Model.ProductPrice.ForceRedirectionAfterAddingToCart)
+    {
+        addtocartlink = Url.RouteUrl("AddProductToCart-Catalog", new { productId = 46, shoppingCartTypeId = shoppingCartTypeId, quantity = 5, forceredirection = Model.ProductPrice.ForceRedirectionAfterAddingToCart });
+    }
+    else
+    {
+        addtocartlink = Url.RouteUrl("AddProductToCart-Catalog", new { productId = 46, shoppingCartTypeId = shoppingCartTypeId, quantity = 5, forceredirection = Model.ProductPrice.ForceRedirectionAfterAddingToCart });
+    }
+
+    @Html.Hidden("cartLink", addtocartlink);
+
+    var addtowishlistlink = Url.RouteUrl("AddProductToCart-Catalog", new { productId = Model.Id, shoppingCartTypeId = (int)ShoppingCartType.Wishlist, quantity = quantity });
+    var addtocomparelink = Url.RouteUrl("AddProductToCompare", new { productId = Model.Id });
+}
+
+<div class="product-item" data-productid="@Model.Id">
+    <div class="details">
+
+        <div class="add-info">
+            @await Component.InvokeAsync("Widget", new { widgetZone = PublicWidgetZones.ProductBoxAddinfoBefore, additionalData = Model })
+            <div class="add-to-cart-panel">
+
+                <div class="product-row">
+                    <div class="title-section">
+                         <div class="picture">
+                                        <a tabindex="-1" href="@Url.RouteUrl("Product", new { SeName = Model.SeName })" title="@Model.DefaultPictureModel.Title">
+                                            <img alt="@Model.DefaultPictureModel.AlternateText" src="@Model.DefaultPictureModel.ImageUrl" tabindex="-1" title="@Model.DefaultPictureModel.Title" />
+                                        </a>
+                                    </div>
+
+                        <span class="product-title">
+                            <a href="@Url.RouteUrl("Product", new {SeName = Model.SeName})">@Model.Name</a>
+                        </span>
+                    </div>
+                    <div >
+                        @if (!string.IsNullOrEmpty(Model.ProductPrice.OldPrice))
+                        {   <span class="price old-price">@Model.ProductPrice.OldPrice</span>   }
+                    </div>
+
+                    <div class="price-area">
+                        <div class="add-cart-div">
+                            <span class="price actual-price">@Model.ProductPrice.Price</span>
+
+                            @await Component.InvokeAsync("Widget", new { widgetZone = PublicWidgetZones.ProductBoxAddinfoMiddle, additionalData = Model })
+                            @if (!Model.ProductPrice.DisableBuyButton)
+                            {
+                                var addToCartText = T("ShoppingCart.AddToCart").Text;
+                                var name = String.Format("textQuant{0}", Model.Id);
+                                string ButtonName = "btn" + Model.Id.ToString();
+                                int buttonIndex = Model.Index;
+                                var quantName = "EnteredQuantity" + Model.Id.ToString();
+
+                                <input asp-for="EnteredQuantity" class="qty-input" style="width: 50px; height: 40px;" type="text" tabindex="@Model.Index" />
+                                <script asp-location="Footer">
+                            //when a customer clicks 'Enter' button we submit the "add to cart" button (if visible)
+                            $(document).ready(function() {
+                                $("#@Html.IdFor(model => model.EnteredQuantity)").on("keydown", function(event) {
+                                    if (event.keyCode == 13) {
+                                        $("#add-to-cart-button-@Model.Id").trigger("click");
+                                    return false;
+                                } });
+                            });
+                                </script>
+
+                                //@JONAS I added and changed this method to update the cart when a user added more than one product form the homepage.
+                                <input name="@Model.Index" tabindex="-1" type="button" value="@(addToCartText)"
+                                       class="button-2 product-box-add-to-cart-button" data-assigned-id="@Model.Id"
+                                       onclick="AjaxCart.addproducttocart_details('@Url.RouteUrl( "AddProductToCart-Details",new { productId = Model.Id, shoppingCartTypeId = (int) ShoppingCartType.ShoppingCart, btnName = ButtonName, index = buttonIndex} )',
+                                                    '#product-massdetails-form');
+                                                    return false;" />
+                            }
+                        </div>
+                    </div>
+                </div>
+                @await Component.InvokeAsync("Widget", new { widgetZone = PublicWidgetZones.ProductBoxAddinfoAfter, additionalData = Model })
+            </div>
+        </div>
+    </div>
+</div>

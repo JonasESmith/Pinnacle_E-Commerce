@@ -1,0 +1,41 @@
+﻿@using WebShop.Models
+
+@{
+    ViewBag.Title = "Home Page";
+}
+
+@model HomeViewModel
+
+<div class="jumbotron">
+    <h1>Pinnacle</h1>
+    @{
+        bool value = System.Web.HttpContext.Current.User.Identity.IsAuthenticated;
+
+        if (value && this.User.IsInRole("Sales"))
+        {
+         Response.Redirect("~/Catalog/Index");
+        }
+        else if (value)
+        {
+            <p class="lead"> Account verification Pending. </p>
+        }
+        else
+        {
+            <p class="lead">Welcome to Pinnacel Distribution! Please create an account to browse our whole-sale store</p>
+            <p><a href="@Url.Action("Register","Account")" class="btn btn-primary btn-lg">Register &raquo;</a></p>
+        }
+    }
+</div>
+
+@*<h3>Today's Deals</h3>
+
+    <div class="row">
+        @foreach(Product deal in Model.Deals)
+        {
+            <div class="col-md-4">
+                <img class="product-minithumbnail" alt="@deal.Name" src="~/Content/products/@deal.Image" />
+                <p><strong>@Html.DisplayFor(model => deal.Name)</strong> <small>@Html.DisplayFor(model => deal.Price)</small></p>
+                <p><a class="btn btn-default" href="@Url.Action("Product","Catalog", new { id = deal.Id})">Details &raquo;</a></p>
+            </div>
+        }
+    </div>*@
